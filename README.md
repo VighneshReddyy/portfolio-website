@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vighnesh Reddy - Personal Portfolio
 
-## Getting Started
+A modern, animated, and responsive personal portfolio website built to showcase projects, skills, and experience—with an emphasis on AI, Robotics, and Deep Learning. It features custom UI components, smooth scroll animations, and dynamic 3D elements.
 
-First, run the development server:
+## 🚀 Tech Stack
 
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, React 19)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **3D Graphics**: [Three.js](https://threejs.org/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## ✨ Key Features
+
+- **Interactive Animations:** High-performance interactive UI using Framer Motion.
+- **Custom UI Components:** Beautifully designed widgets including `magic-text`, `flip-links`, and `dotted-surface` backgrounds.
+- **Dynamic 3D Integration:** Visually engaging 3D elements powered by Three.js.
+- **Responsive Layout:** Carefully crafted to adapt cleanly to all screen sizes, from mobile to ultra-wide monitors.
+- **Optimized for Speed:** Next.js Server Components and Image optimizations out of the box.
+
+## 📦 Getting Started
+
+First, clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/VighneshReddyy/portfolio-website.git
+cd portfolio-website
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the portfolio in action.
 
-## Learn More
+## 🗂️ Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` - Next.js App Router pages, global layouts, and CSS.
+- `components/ui/` - Reusable, animated UI components (cards, badges, tabs).
+- `lib/` - Utility functions (e.g., `tailwind-merge` and `clsx` wrapper).
+- `public/` - Static assets (avatar, images, icons).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The minimal requirements and auto-config make it very easy to deploy on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). 
 
-## Deploy on Vercel
+1. Push your code to your GitHub repository.
+2. Go to Vercel and import your repository.
+3. Keep the default settings and click **Deploy**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Found a bug or want to contribute?
+Feel free to open an issue or submit a pull request if you notice anything that can be improved.
