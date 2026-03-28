@@ -1,0 +1,56 @@
+import React from "react";
+
+export const FlipLinksSection = () => {
+  return (
+    <section className="grid place-content-center gap-2 bg-background w-full h-screen text-black dark:text-white pb-32 pt-20">
+      <FlipLink href="https://github.com/VighneshReddyy">Github</FlipLink>
+      <FlipLink href="https://linkedin.com/in/vighnesh-reddy-satti">LinkedIn</FlipLink>
+      <FlipLink href="mailto:vighneshreddysatti@gmail.com">Email</FlipLink>
+      <FlipLink href="tel:+919121656560">Phone</FlipLink>
+      <FlipLink href="https://instagram.com/">Instagram</FlipLink>
+    </section>
+  );
+};
+
+const FlipLink = ({ children, href }: { children: string; href: string }) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group text-primary relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-6xl md:text-7xl lg:text-8xl"
+      style={{
+        lineHeight: 0.85,
+      }}
+    >
+      <div className="flex">
+        {children.split("").map((letter, i) => (
+          <span
+            key={i}
+            className="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]"
+            style={{
+              transitionDelay: `${i * 25}ms`,
+            }}
+          >
+            {letter}
+          </span>
+        ))}
+      </div>
+      <div className="absolute inset-0 flex">
+        {children.split("").map((letter, i) => (
+          <span
+            key={i}
+            className="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0"
+            style={{
+              transitionDelay: `${i * 25}ms`,
+            }}
+          >
+            {letter}
+          </span>
+        ))}
+      </div>
+    </a>
+  );
+};
+
+export { FlipLink };
