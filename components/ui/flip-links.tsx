@@ -4,7 +4,7 @@ export const FlipLinksSection = () => {
   return (
     <section className="grid place-content-center gap-2 bg-background w-full h-screen text-black dark:text-white pb-32 pt-20">
       <FlipLink href="https://github.com/VighneshReddyy">Github</FlipLink>
-      <FlipLink href="https://linkedin.com/in/vighnesh-reddy-satti">LinkedIn</FlipLink>
+      <FlipLink href="https://linkedin.com/in/vighnesh-reddy-satti-402172321">LinkedIn</FlipLink>
       <FlipLink href="mailto:vighneshreddysatti@gmail.com">Email</FlipLink>
       <FlipLink href="tel:+919121656560">Phone</FlipLink>
       <FlipLink href="https://instagram.com/">Instagram</FlipLink>

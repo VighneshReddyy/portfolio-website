@@ -45,6 +45,8 @@ const NAV_TABS = [
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [navVisible, setNavVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -63,41 +65,158 @@ export default function Home() {
 
   const projects = [
     {
-      headline: "Autonomous Rover using ROS2",
-      excerpt:
-        "Built a rover integrating LiDAR, IMU, camera, and GPS sensors with SLAM, obstacle avoidance, and Nav2. Includes ArUco marker detection and ground plane removal.",
-      cover: "https://images.unsplash.com/photo-1581092334246-814eeecca8fa?w=800&q=80",
+      headline: "Autonomous Rover System (ROS 2)",
+      excerpt: "Built an autonomous rover integrating LiDAR, IMU, GPS, and camera sensors for real-time navigation.",
+      fullDescription: "Built an autonomous rover integrating LiDAR, IMU, GPS, and camera sensors for real-time navigation. Implements SLAM, obstacle avoidance, and goal-based traversal.",
+      tools: ["ROS 2", "C++", "Python", "Nav2", "OpenCV", "Gazebo"],
+      cover: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&q=80",
       tag: "Robotics",
-      githubUrl: "https://github.com/VighneshReddyy/",
-      clampLines: 3,
+      githubUrl: "https://github.com/VighneshReddyy"
     },
     {
-      headline: "Deep Learning Object Detection",
-      excerpt:
-        "Implemented YOLOv8 and YOLOv11 models for detecting probes, cones, arrows, and ArUco tags. Integrated into robotic perception systems for real-time autonomous tasks.",
-      cover: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80",
-      tag: "AI / CV",
-      githubUrl: "https://github.com/VighneshReddyy/",
-      clampLines: 3,
+      headline: "Real-Time Object Detection (YOLO)",
+      excerpt: "Developed a real-time object detection pipeline using YOLO models for robotics perception tasks like cone detection.",
+      fullDescription: "Developed a real-time object detection pipeline using YOLO models for robotics perception tasks like cone detection and obstacle identification.",
+      tools: ["Python", "YOLOv8/YOLOv11", "OpenCV", "PyTorch"],
+      cover: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
+      tag: "Computer Vision",
+      githubUrl: "https://github.com/VighneshReddyy"
     },
     {
-      headline: "Distributed Chatroom using ROS2",
-      excerpt:
-        "ROS2 package enabling real-time multi-node chat using publisher–subscriber topics and custom C++ message types. Includes RQT graph visualization and full docs.",
-      cover: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      tag: "ROS2 / C++",
-      githubUrl: "https://github.com/VighneshReddyy/",
-      clampLines: 3,
+      headline: "MarketHub (Full-Stack Marketplace)",
+      excerpt: "Developed a full-stack marketplace platform with listings, purchases, reviews, and admin panel.",
+      fullDescription: "Developed a full-stack marketplace platform with listings, purchases, reviews, and admin panel.",
+      tools: ["Next.js", "React", "Tailwind CSS", "MySQL/TiDB", "Node.js"],
+      cover: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+      tag: "Web Development",
+      githubUrl: "https://github.com/VighneshReddyy/MarketHub.git"
     },
     {
       headline: "MNIST Neural Network from Scratch",
-      excerpt:
-        "Feed-forward neural network in NumPy with full backpropagation and gradient-descent — no frameworks. Achieved 96.4% accuracy on MNIST with a complete training pipeline.",
+      excerpt: "Implemented a fully connected neural network from scratch using NumPy with forward/backpropagation.",
+      fullDescription: "Implemented a fully connected neural network from scratch using NumPy with forward/backpropagation and training pipeline.",
+      tools: ["Python", "NumPy", "Pandas"],
+      cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+      tag: "Deep Learning",
+      githubUrl: "https://github.com/VighneshReddyy/mnist-nn-from-scratch.git"
+    },
+    {
+      headline: "Distributed Chat System (ROS 2)",
+      excerpt: "Implemented a distributed chat application using ROS 2 pub-sub architecture for real-time communication across multiple nodes.",
+      fullDescription: "Implemented a distributed chat application using ROS 2 pub-sub architecture for real-time communication across multiple nodes.",
+      tools: ["ROS 2", "C++", "Python", "rclcpp", "rclpy"],
+      cover: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+      tag: "Networking",
+      githubUrl: "https://github.com/VighneshReddyy"
+    },
+    {
+      headline: "ROS 2 IMU Interface & Calibration",
+      excerpt: "Designed a pipeline for IMU data acquisition, calibration, and orientation processing supporting hardware streams.",
+      fullDescription: "Designed a pipeline for IMU data acquisition, calibration, and orientation processing supporting hardware and external streams.",
+      tools: ["ROS 2", "C++", "Python", "BNO055", "sensor_msgs"],
+      cover: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      tag: "Hardware",
+      githubUrl: "https://github.com/VighneshReddyy/imu-interface.git"
+    },
+    {
+      headline: "ROS 2 Panorama & Sensor Dashboard",
+      excerpt: "Created a panorama stitching system with IMU-based compass overlay and GUI for real-time sensor visualization.",
+      fullDescription: "Created a panorama stitching system with IMU-based compass overlay and GUI for real-time sensor visualization.",
+      tools: ["ROS 2", "C++", "Python", "OpenCV", "Tkinter"],
+      cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tag: "Robotics",
+      githubUrl: "https://github.com/VighneshReddyy/ros2-gui.git"
+    },
+    {
+      headline: "RADO GPS Mapping System",
+      excerpt: "ROS 2-based reconnaissance and mapping tool with real-time GPS visualization, waypoint tagging, and image capture.",
+      fullDescription: "ROS 2-based reconnaissance and mapping tool with real-time GPS visualization, waypoint tagging, and image capture. Supports both real hardware and simulated environments for mapping workflows.",
+      tools: ["ROS 2", "Python", "OpenCV", "pygame", "matplotlib", "NumPy"],
+      cover: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80",
+      tag: "Robotics",
+      githubUrl: "https://github.com/VighneshReddyy/rado-gps-mapping.git"
+    },
+    {
+      headline: "RTK GPS Precision Localization",
+      excerpt: "Implemented a full RTK-GPS pipeline enabling centimeter-level positioning using RTCM corrections.",
+      fullDescription: "Implemented a full RTK-GPS pipeline enabling centimeter-level positioning using RTCM corrections. Includes base station streaming and rover-side correction with real-time ROS 2 publishing.",
+      tools: ["ROS 2", "Python", "pyserial", "pyubx2", "TCP sockets"],
+      cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      tag: "Hardware",
+      githubUrl: "https://github.com/VighneshReddyy/gps-rtk.git"
+    },
+    {
+      headline: "CIFAR-10 CNN with Augmentation",
+      excerpt: "Built a deep CNN for CIFAR-10 classification with augmentation and regularization for improved generalization.",
+      fullDescription: "Built a deep CNN for CIFAR-10 classification with augmentation and regularization for improved generalization.",
+      tools: ["Python", "TensorFlow", "Keras", "NumPy"],
       cover: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
       tag: "Deep Learning",
-      githubUrl: "https://github.com/VighneshReddyy/",
-      clampLines: 3,
+      githubUrl: "https://github.com/VighneshReddyy/cifar10-cnn.git"
     },
+    {
+      headline: "OpenCV Panorama & Calibration Suite",
+      excerpt: "Implemented feature detection, image stitching, and camera calibration pipelines including fisheye correction.",
+      fullDescription: "Implemented feature detection, image stitching, and camera calibration pipelines including fisheye correction.",
+      tools: ["Python", "OpenCV", "NumPy"],
+      cover: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=800&q=80",
+      tag: "Computer Vision",
+      githubUrl: "https://github.com/VighneshReddyy/opencv-panorama-sift.git"
+    },
+    {
+      headline: "OpenCV Object Detection & Tracking",
+      excerpt: "Built classical CV pipelines for object detection and tracking using color and shape-based filtering.",
+      fullDescription: "Built classical CV pipelines for object detection and tracking using color and shape-based filtering.",
+      tools: ["Python", "OpenCV", "NumPy"],
+      cover: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80",
+      tag: "Computer Vision",
+      githubUrl: "https://github.com/VighneshReddyy/opencv-object-tracking.git"
+    },
+    {
+      headline: "ArUco Pose Estimation System",
+      excerpt: "Developed marker-based pose and distance estimation system for robotics navigation tasks.",
+      fullDescription: "Developed marker-based pose and distance estimation system for robotics navigation tasks.",
+      tools: ["Python", "OpenCV", "NumPy"],
+      cover: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=800&q=80",
+      tag: "Computer Vision",
+      githubUrl: "https://github.com/VighneshReddyy/opencv-aruco-pose.git"
+    },
+    {
+      headline: "Logistic Regression (From Scratch + Sklearn)",
+      excerpt: "Implemented logistic regression for binary and multiclass classification using NumPy and Scikit-learn.",
+      fullDescription: "Implemented logistic regression for binary and multiclass classification using NumPy and Scikit-learn with evaluation pipelines.",
+      tools: ["Python", "NumPy", "Scikit-learn", "Pandas", "Matplotlib"],
+      cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      tag: "Machine Learning",
+      githubUrl: "https://github.com/VighneshReddyy/logistic-regression.git"
+    },
+    {
+      headline: "Linear Regression on Real Datasets",
+      excerpt: "Developed regression models for housing price and wine quality prediction with preprocessing and feature engineering.",
+      fullDescription: "Developed regression models for housing price and wine quality prediction with preprocessing and feature engineering.",
+      tools: ["Python", "Scikit-learn", "Pandas", "NumPy", "Seaborn"],
+      cover: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+      tag: "Machine Learning",
+      githubUrl: "https://github.com/VighneshReddyy/linear-regression.git"
+    },
+    {
+      headline: "Habit Forest (Focus & Habit Tracker)",
+      excerpt: "Built a productivity app combining focus sessions and habit tracking with visual analytics and streaks.",
+      fullDescription: "Built a productivity app combining focus sessions and habit tracking with visual analytics and streaks.",
+      tools: ["React", "Tailwind CSS", "Zustand", "Framer Motion", "Recharts"],
+      cover: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      tag: "Web Development",
+      githubUrl: "https://github.com/VighneshReddyy/habit-tracker.git"
+    },
+    {
+      headline: "C++ Programming Coursework",
+      excerpt: "Structured collection of C++ exercises covering fundamental to advanced programming concepts.",
+      fullDescription: "Structured collection of C++ exercises covering fundamental to advanced programming concepts.",
+      tools: ["C++", "STL"],
+      cover: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80",
+      tag: "Programming",
+      githubUrl: "https://github.com/VighneshReddyy/Codio-Cpp-Courses.git"
+    }
   ];
 
   const skills: Record<string, string[]> = {
@@ -111,7 +230,7 @@ export default function Home() {
     {
       role: "AI & Automation Member",
       org: "Mars Rover Manipal",
-      period: "Oct 2025 – Present",
+      period: "Oct 2025 - Present",
       location: "Manipal, India",
       points: [
         "Developing autonomous navigation and perception systems using ROS2, Nav2, and multi-sensor fusion (LiDAR, camera, IMU, GPS).",
@@ -122,9 +241,20 @@ export default function Home() {
       accent: "#3b82f6",
     },
     {
+      role: "Technical & PAV ManComm",
+      org: "The MIT Editorial Board",
+      period: "Feb 2026 - Present",
+      location: "Udupi, Karnataka, India",
+      points: [
+        "Assisting with frontend and backend development of the MIT Ed Board website.",
+        "Part of the PAV team, handling photography and videography for events."
+      ],
+      accent: "#e11d48",
+    },
+    {
       role: "Research Intern",
       org: "Manipal Institute of Technology",
-      period: "Jan 2026 – Present",
+      period: "Jan 2026 - Present",
       location: "Manipal, India",
       points: [
         "Conducting research on deepfake detection using deep neural networks for cross-dataset generalization.",
@@ -136,7 +266,7 @@ export default function Home() {
     {
       role: "Managing Committee Member",
       org: "IE-E&C, The Manipal Chapter",
-      period: "Jul 2025 – Present",
+      period: "Jul 2025 - Present",
       location: "Manipal, India",
       points: [
         "Conducted technical interviews for junior applicants evaluating programming and ML fundamentals.",
@@ -148,7 +278,7 @@ export default function Home() {
     {
       role: "Working Committee",
       org: "Finova, Manipal",
-      period: "Aug 2024 – Aug 2025",
+      period: "Aug 2024 - Aug 2025",
       location: "Manipal, India",
       points: [
         "Explored foundational algorithms, quantitative trading concepts, and cybersecurity fundamentals through technical workshops.",
@@ -186,7 +316,7 @@ export default function Home() {
               className="p-2 rounded-full hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              {mounted ? (theme === "dark" ? <Sun size={16} /> : <Moon size={16} />) : <Sun className="opacity-0" size={16} />}
             </button>
             <button
                onClick={() => scrollTo("contact")}
@@ -266,7 +396,7 @@ export default function Home() {
               transition={{ duration: 0.65, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
               className="text-base sm:text-lg text-muted-foreground/90 max-w-lg mb-10 leading-relaxed md:mx-0 mx-auto"
             >
-              Building autonomous systems that see, think, and navigate — from
+              Building autonomous systems that see, think, and navigate, from
               multi-sensor fusion to real-time deep learning pipelines.
             </motion.p>
 
@@ -291,7 +421,7 @@ export default function Home() {
                 <Code2 size={14} /> GitHub
               </a>
               <a
-                href="https://linkedin.com/in/vighnesh-reddy-satti"
+                href="https://linkedin.com/in/vighnesh-reddy-satti-402172321"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-full border border-border/70 bg-background/30 backdrop-blur-sm hover:bg-background/60 active:scale-95 transition-all flex items-center gap-2 text-sm font-medium"
@@ -361,17 +491,17 @@ export default function Home() {
           <FadeIn><SectionLabel>About</SectionLabel></FadeIn>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn delay={0.1}>
-              <MagicText text="Autonomous systems, computer vision, and deep learning — I build machines that see, think, and navigate." />
+              <MagicText text="Autonomous systems, computer vision, and deep learning, I build machines that see, think, and navigate." />
             </FadeIn>
             <FadeIn delay={0.25} className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                I&apos;m a first-year B.Tech Information Technology student at{" "}
+                I&apos;m a second-year B.Tech Information Technology student at{" "}
                 <strong className="text-foreground">Manipal Institute of Technology</strong>, deeply
                 passionate about the intersection of robotics and AI.
               </p>
               <p>
                 At <strong className="text-foreground">Mars Rover Manipal</strong>, I build real autonomous
-                systems — integrating multi-sensor fusion stacks, computer vision pipelines, and robotic
+                systems, integrating multi-sensor fusion stacks, computer vision pipelines, and robotic
                 arm manipulation for international competitions. We placed{" "}
                 <strong className="text-foreground">7th globally</strong> at the International Rover
                 Challenge.
@@ -499,9 +629,9 @@ export default function Home() {
           <FadeIn delay={0.1}><h2 className="text-3xl sm:text-4xl font-bold mb-16">Academic journey</h2></FadeIn>
           <div className="space-y-4">
             {[
-              { school: "Manipal Institute of Technology", degree: "B.Tech in Information Technology", grade: "CGPA: 7.57", period: "Aug 2024 – May 2028", location: "Manipal, India" },
-              { school: "FIITJEE International School", degree: "Class XII", grade: "94%", period: "Jun 2022 – May 2024", location: "Vijayawada, India" },
-              { school: "Aditya Educational Institutions", degree: "Class X", grade: "95%", period: "May 2019 – Apr 2021", location: "Kakinada, India" },
+              { school: "Manipal Institute of Technology", degree: "B.Tech in Information Technology", grade: "pursuing" as const, period: "Aug 2024 - May 2028", location: "Manipal, India" },
+              { school: "FIITJEE International School", degree: "Class XII", grade: "94%", period: "Jun 2022 - May 2024", location: "Vijayawada, India" },
+              { school: "Aditya Educational Institutions", degree: "Class X", grade: "95%", period: "May 2019 - Apr 2021", location: "Kakinada, India" },
             ].map((edu, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <motion.div
@@ -514,42 +644,56 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground">{edu.degree} · {edu.location}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold">{edu.grade}</p>
-                    <p className="text-xs text-muted-foreground font-mono">{edu.period}</p>
+                    {edu.grade === "pursuing" ? (
+                      <span className="flex items-center gap-2 text-green-500 font-medium text-sm">
+                        <span className="size-2 rounded-full bg-green-500 animate-pulse" /> Pursuing
+                      </span>
+                    ) : (
+                      <span className="font-semibold">{edu.grade}</span>
+                    )}
+                    <span className="text-xs text-muted-foreground font-mono block mt-1">{edu.period}</span>
                   </div>
                 </motion.div>
               </FadeIn>
             ))}
           </div>
 
-          <div className="mt-20 grid md:grid-cols-2 gap-10">
+          <div className="mt-24 space-y-20">
             <FadeIn delay={0.1}>
-              <h3 className="text-lg font-semibold mb-6">🏆 Awards</h3>
-              <ul className="space-y-3">
+              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">🏆 Awards</h3>
+              <ul className="space-y-4">
                 {[
-                  "7th Place — International Rover Challenge (IRC) among 35 international teams",
-                  "4th Place — International Rover Design Challenge (IRDC)",
+                  "7th Place - International Rover Challenge (IRC) among 35 international teams",
+                  "4th Place - International Rover Design Challenge (IRDC)",
                 ].map((award, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                    <span className="text-foreground font-mono shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <li key={i} className="flex gap-4 p-4 rounded-2xl bg-card/60 border border-border hover:border-foreground/20 transition-colors text-muted-foreground w-full">
+                    <span className="text-foreground font-mono font-bold shrink-0">{String(i + 1).padStart(2, "0")}</span>
                     {award}
                   </li>
                 ))}
               </ul>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <h3 className="text-lg font-semibold mb-6">📜 Certifications</h3>
-              <ul className="space-y-3">
+              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">📜 Certifications</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  "Deep Learning Specialization — Andrew Ng (DeepLearning.AI)",
-                  "C++ Programming Course — Codi",
+                  { title: "DeepLearning.AI: Neural Networks and Deep Learning", url: "https://www.coursera.org/account/accomplishments/verify/Q8S1HHLZXCQR" },
+                  { title: "DeepLearning.AI: Convolutional Neural Networks", url: "https://www.coursera.org/account/accomplishments/verify/RU2D0A88HDOK" },
+                  { title: "DeepLearning.AI: Sequence Models", url: "https://www.coursera.org/account/accomplishments/verify/A63ESN9IMLSJ" },
+                  { title: "DeepLearning.AI: Deep Learning Specialization", url: "https://www.coursera.org/account/accomplishments/verify/JH0PP8AN6N7C" },
+                  { title: "Codio: C++ Programming Object-Oriented", url: "https://www.coursera.org/account/accomplishments/verify/HTKCDGQQ7T7Q" },
+                  { title: "Codio: C++ Programming STL", url: "https://www.coursera.org/account/accomplishments/verify/IIVWWLSN0Z3G" },
+                  { title: "Codio: C++ Programming Advanced Concepts", url: "https://www.coursera.org/account/accomplishments/verify/OEB1KYU09BZR" },
                 ].map((cert, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                    <span className="text-foreground font-mono shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                    {cert}
-                  </li>
+                  <a key={i} href={cert.url} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-2 p-5 rounded-2xl bg-card/60 border border-border hover:border-foreground/30 hover:bg-muted/30 transition-colors w-full group">
+                    <div className="flex justify-between items-start">
+                      <span className="text-foreground/40 font-mono text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground group-hover:text-foreground transition-colors"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </div>
+                    <span className="font-medium text-muted-foreground group-hover:text-foreground transition-colors">{cert.title}</span>
+                  </a>
                 ))}
-              </ul>
+              </div>
             </FadeIn>
           </div>
         </div>
